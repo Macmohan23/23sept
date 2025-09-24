@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Professional Interview Platform Theme */
+    --background: 0 0% 99%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Corporate Blue Primary */
+    --primary: 217 91% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 91% 55%;
+    
+    /* Professional Secondary */
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 215 25% 15%;
+
+    /* Subtle Muted */
+    --muted: 214 32% 95%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Success Accent */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Professional Warning */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Clean Borders */
+    --border: 214 32% 87%;
+    --input: 214 32% 87%;
+    --ring: 217 91% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 35%), hsl(217 91% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(214 32% 95%), hsl(0 0% 100%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 35%) 0%, hsl(217 91% 45%) 50%, hsl(217 91% 55%) 100%);
+    
+    --shadow-soft: 0 4px 20px -4px hsl(217 91% 35% / 0.1);
+    --shadow-medium: 0 8px 30px -8px hsl(217 91% 35% / 0.15);
+    --shadow-strong: 0 12px 40px -12px hsl(217 91% 35% / 0.2);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Professional Interview Platform Theme - Dark Mode */
+    --background: 217 33% 8%;
+    --foreground: 210 40% 95%;
+
+    --card: 217 33% 10%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 217 33% 10%;
+    --popover-foreground: 210 40% 95%;
+
+    /* Bright Primary for Dark Mode */
+    --primary: 217 91% 55%;
+    --primary-foreground: 217 33% 8%;
+    --primary-glow: 217 91% 65%;
+
+    --secondary: 217 25% 15%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 217 25% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 142 76% 46%;
+    --accent-foreground: 217 33% 8%;
+
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 217 33% 8%;
+
+    --border: 217 25% 18%;
+    --input: 217 25% 18%;
+    --ring: 217 91% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

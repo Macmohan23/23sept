@@ -1,0 +1,64 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password_hash String
+  created_at    DateTime @default(now())
+  profile       Profile?
+}
+
+model Profile {
+  id                Int       @id @default(autoincrement())
+  user_id           Int       @unique
+  user              User      @relation(fields: [user_id], references: [id])
+  email             String
+  full_name         String
+  phone             String?
+  position_applied  String?
+  created_at        DateTime  @default(now())
+  interviews        Interview[]
+}
+
+model Question {
+  id             Int     @id @default(autoincrement())
+  job_role       String
+  question_text  String
+  question_order Int
+  answers        Answer[]
+}
+
+model Interview {
+  id                 Int       @id @default(autoincrement())
+  candidate_id       Int
+  candidate          Profile   @relation(fields: [candidate_id], references: [id])
+  job_role           String
+  score              Int
+  gaze_warnings      Int       @default(0)
+  completion_time    Int       @default(0)
+  started_at         DateTime  @default(now())
+  completed_at       DateTime?
+  status             String    @default("completed")
+  video_recording_url String?
+  created_at         DateTime  @default(now())
+  answers            Answer[]
+}
+
+model Answer {
+  id           Int       @id @default(autoincrement())
+  interview_id Int
+  interview    Interview @relation(fields: [interview_id], references: [id])
+  question_id  Int
+  question     Question  @relation(fields: [question_id], references: [id])
+  answer_text  String
+  ai_score     Int?
+  ai_feedback  String?
+}
